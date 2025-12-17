@@ -26,7 +26,6 @@
             z-index: 1000;
             animation: fadeIn 1s ease-in-out;
             padding: 5rem;
-            overflow-y: auto; 
         }
         .splash-content {
             display: flex;
@@ -148,7 +147,7 @@
 
     <div class="app-content" id="app">
         <!-- Contenu de l'app ici -->
-       <iframe id="haWidget" allowtransparency="true" src="https://www.helloasso.com/associations/spectentaculaire/adhesions/cotisation-spectentaculaire/widget" style="width: 100%; border: none; display: block;" onload="window.addEventListener('message', function(e) { if (!e.data || typeof e.data.height === 'undefined') return; var haWidgetElement = document.getElementById('haWidget'); haWidgetElement.style.height = e.data.height + 'px'; })"></iframe>
+       <iframe id="haWidget" allowtransparency="true" scrolling="no" src="https://www.helloasso.com/associations/spectentaculaire/adhesions/cotisation-spectentaculaire/widget" style="width: 100%; border: none; display: block;" onload="window.addEventListener('message', function(e) { if (!e.data || typeof e.data.height === 'undefined') return; var haWidgetElement = document.getElementById('haWidget'); haWidgetElement.style.height = e.data.height + 'px'; })"></iframe>
     </div>
 
 
