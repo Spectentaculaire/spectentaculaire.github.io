@@ -107,7 +107,7 @@
         }
         .app-content {
             display: none;
-            height: 100%;
+            height: auto;
         }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
         @keyframes fadeOut { to { opacity: 0; transform: scale(1.05); } }
@@ -148,23 +148,7 @@
 
     <div class="app-content" id="app">
         <!-- Contenu de l'app ici -->
-        <iframe id="haWidget" allowtransparency="true" src="https://www.helloasso.com/associations/spectentaculaire/adhesions/cotisation-spectentaculaire/widget" style="width: 100%; border: none; display: block;"></iframe>
-            <script>
-            // Ajuste la hauteur de l'iframe en fonction des messages de HelloAsso
-            window.addEventListener('message', function (e) {
-            // Optionnel mais recommandé : vérifier l'origine
-            // if (e.origin !== 'https://www.helloasso.com') return;
-            
-            if (!e.data || typeof e.data.height === 'undefined') return;
-            
-            const haWidgetElement = document.getElementById('haWidget');
-            // Hauteur minimum : la hauteur de la fenêtre
-            const minHeight = window.innerHeight;
-            const newHeight = Math.max(e.data.height, minHeight);
-            
-            haWidgetElement.style.height = newHeight + 'px';
-            });
-            </script>
+       <iframe id="haWidget" allowtransparency="true" src="https://www.helloasso.com/associations/spectentaculaire/adhesions/cotisation-spectentaculaire/widget" style="width: 100%; border: none; display: block;" onload="window.addEventListener('message', function(e) { if (!e.data || typeof e.data.height === 'undefined') return; var haWidgetElement = document.getElementById('haWidget'); haWidgetElement.style.height = e.data.height + 'px'; })"></iframe>
     </div>
 
 
