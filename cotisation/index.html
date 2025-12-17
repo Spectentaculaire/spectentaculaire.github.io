@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payer ma cotisation – Spectentaculaire</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Roboto', 'Arial', sans-serif; 
+        }
+        .splashscreen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #957aff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 1000;
+            animation: fadeIn 1s ease-in-out;
+            padding: 5rem;
+            overflow-y: auto; 
+        }
+        .splash-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6rem;
+        }
+
+        .splashscreen h1 {
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            margin-top : 2rem;
+            margin-bottom: 2rem;
+        }
+        .splashscreen p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            opacity: 0.9;
+        }
+
+        .btn-commencer:hover {
+            background: rgba(255,255,255,0.4);
+            transform: scale(1.09);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        /* --- Mise en page bureau --- */
+        @media (min-width: 768px) {
+            .splash-content {
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                text-align: left;
+            }
+            .splash-text {
+                flex: 1;
+                text-align: left;
+            }
+            .btn-commencer {
+                flex-shrink: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+          .splashscreen {
+            padding: 2rem;
+          }
+          .splash-content {
+            gap: 3rem;
+          }
+        }
+
+        .btn-commencer {
+            padding: 20px 28px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 4px solid white;
+            border-radius: 0;
+            color: white;
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem; /* espace texte / chevron */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .btn-chevron {
+            width: 1.3em;
+            height: 1.3em;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-commencer:hover .btn-chevron {
+            transform: translateX(4px);
+        }
+        .app-content {
+            display: none;
+            height: 100%;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        @keyframes fadeOut { to { opacity: 0; transform: scale(1.05); } }
+        .fade-out { animation: fadeOut 0.5s ease-in-out forwards; }
+        .logo {
+          min-width: 150px;
+          max-width: 200px;
+          width: 40%;
+          height: auto;
+          display: block;
+          margin: 0 auto 1.5rem auto;
+        }
+
+        /* Sur bureau, aligner le logo à gauche comme le texte */
+        @media (min-width: 768px) {
+            .logo {
+                margin: 0 0 1.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="splashscreen" id="splash">
+          <div class="splash-content">
+            <div class="splash-text">
+              <img src="https://app.spectentaculaire.fr/assets/logo-spectentaculaire.webp" alt="Spectentaculaire" class="logo">
+                <h1>Payer ma cotisation Spectentaculaire</h1>
+                <p>Cette application permet de régler par carte bancaire les échéances trimestrielles de votre cotisation.<br /><br />
+                IMPORTANT : Lorsque vous arriverez à la dernière étape de la procédure («Récapitulatif»), pensez à bien retirer la contribution faite à HelloAsso afin de ne pas être surfacturé par notre prestataire de paiement.</p>
+            </div>
+            <button class="btn-commencer" onclick="startApp()">
+              <span>Commencer</span>
+              <svg class="btn-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 4l8 8-8 8" />
+              </svg>
+            </button>
+          </div>
+    </div>
+
+    <div class="app-content" id="app">
+        <!-- Contenu de l'app ici -->
+        <iframe id="haWidget" allowtransparency="true" src="https://www.helloasso.com/associations/spectentaculaire/adhesions/cotisation-spectentaculaire/widget" style="width: 100%; border: none; height: 100%" onload="window.addEventListener( 'message', function(e) { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget'); haWidgetElement.height = dataHeight + 'px'; } )" ></iframe>
+    </div>
+
+
+    <script>
+        function startApp() {
+            const splash = document.getElementById('splash');
+            const app = document.getElementById('app');
+            splash.classList.add('fade-out');
+            setTimeout(() => {
+                splash.style.display = 'none';
+                app.style.display = 'block';
+            }, 500);
+        }
+    </script>
+</body>
+</html>
