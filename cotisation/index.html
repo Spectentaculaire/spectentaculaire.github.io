@@ -69,7 +69,6 @@
             opacity: 0.9;
         }
 
-        /* --- Mise en page bureau --- */
         @media (min-width: 768px) {
             .splash-content {
                 flex-direction: row;
@@ -116,7 +115,7 @@
             line-height: 1; /* règle le problème de texte décalé par rapport au chevron sur Firefox */
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .btn-commencer {
                 width: 100% !important;
             }
@@ -161,11 +160,20 @@
           margin: 0 auto 1.5rem auto;
         }
 
-        /* Sur bureau, aligner le logo à gauche comme le texte */
         @media (min-width: 768px) {
             .logo {
                 margin: 0 0 1.5rem 0;
             }
+        }
+
+        @media (max-width: 767px) {
+            .logo {
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                transform: translate(-50%);
+            }
+
         }
 
         .splash-footer {
