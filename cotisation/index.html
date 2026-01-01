@@ -196,6 +196,7 @@
           </div>
           <div class="splash-footer">
               © Spectentaculaire <span id="annee"></span> — Tous droits réservés
+              <script>document.getElementById('annee').textContent=new Date().getFullYear();</script>
     </div>
 
     <div class="app-content" id="app">
@@ -225,6 +226,5 @@
         className: 'emoji'     // classe CSS
       });
     </script>
-    <script>document.getElementById('annee').textContent=new Date().getFullYear();</script>
 </body>
 </html>
