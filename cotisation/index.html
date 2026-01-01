@@ -37,6 +37,12 @@
         html, body {
             height: auto;
         }
+        html {
+        /* Empêche iOS de modifier la taille du texte lors du passage en paysage */
+        -webkit-text-size-adjust: 100%;
+        /* Standard pour les autres navigateurs */
+        text-size-adjust: 100%;
+        }
         .splashscreen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -227,6 +233,5 @@
         className: 'emoji'     // classe CSS
       });
     </script>
-    <script>document.getElementById('annee').textContent=new Date().getFullYear();</script>
 </body>
 </html>
