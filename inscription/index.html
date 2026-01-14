@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Pré-inscription – Spectentaculaire</title>
+    <meta name="theme-color" content="#957aff">
+    <meta name="msapplication-navbutton-color" content="#957aff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#957aff">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="https://spectentaculaire.fr/wp-content/uploads/2025/12/cropped-favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://spectentaculaire.fr/wp-content/uploads/2025/12/cropped-favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://spectentaculaire.fr/wp-content/uploads/2025/12/cropped-favicon-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://spectentaculaire.fr/wp-content/uploads/2025/12/cropped-favicon-270x270.png" />
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <style>
+      img.emoji {
+        height: 1em;
+        width: 1em;
+        margin: 0 .05em 0 .1em;
+        vertical-align: -0.1em;
+      }
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+        @font-face {
+            font-family: 'Lovelo';
+            font-weight: 400;
+            font-display: auto;
+            src: url('https://app.spectentaculaire.fr/assets/Lovelo-Black.otf') format('OpenType');
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Open Sans', 'Arial', sans-serif; 
+            min-height: 100vh;
+            background: #f4f6fb;
+        }
+        html, body {
+            height: auto;
+        }
+        html {
+        /* Empêche iOS de modifier la taille du texte lors du passage en paysage */
+        -webkit-text-size-adjust: 100%;
+        /* Standard pour les autres navigateurs */
+        text-size-adjust: 100%;
+        }
+        .splashscreen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #957aff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 1000;
+            animation: fadeIn 1s ease-in-out;
+            padding: 8rem;
+        }
+        .splash-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6rem;
+            margin-top: -20px;
+        }
+
+        .splashscreen h1 {
+            font-size: clamp(1.5rem, 2.5vw, 3rem);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            font-family: 'Lovelo', 'Open Sans', 'Arial', sans-serif; 
+        }
+        .splashscreen p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            opacity: 0.9;
+        }
+
+        @media (min-width: 901px) {
+            .splash-content {
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                text-align: left;
+            }
+            .splash-text {
+                flex: 1;
+                text-align: left;
+            }
+            .btn-commencer {
+                flex-shrink: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+          .splashscreen {
+            padding: 2rem;
+          }
+          .splash-content {
+            gap: 3rem;
+          }
+        }
+
+        .btn-commencer {
+            font-family: 'Lovelo', 'Arial', sans-serif;
+            padding: 20px 28px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 4px solid white;
+            border-radius: 50px;
+            color: white;
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem; /* espace texte / chevron */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            vertical-align: middle;
+            line-height: 1; /* règle le problème de texte décalé par rapport au chevron sur Firefox */
+        }
+
+        @media (max-width: 900px) {
+            .btn-commencer {
+                width: 100% !important;
+            }
+            .btn-commencer:hover {
+                transform: scale(1.05) !important;
+            }
+        }
+            
+        }
+
+        .btn-commencer span {
+            margin-top: 1px;
+        }
+
+        .btn-commencer:hover {
+            background: rgba(255,255,255,0.4);
+            transform: scale(1.22);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .btn-chevron {
+            width: 1.3em;
+            height: 1.3em;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-commencer:hover .btn-chevron {
+            transform: translateX(4px);
+        }
+        
+        .app-content {
+            display: none;
+            height: auto;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        @keyframes fadeOut { to { opacity: 0; transform: scale(1.05); } }
+        .fade-out { animation: fadeOut 0.5s ease-in-out forwards; }
+        
+        .logo {
+          width: 230px;
+          height: auto;
+          display: block;
+          margin: 0 auto 1.5rem auto;
+          animation: fadeIn 3s ease-in-out;
+        }
+
+        @media (min-width: 901px) {
+            .logo {
+                margin: 0 0 1.5rem 0;
+            }
+        }
+
+        .splash-footer {
+            font-size: 12px;
+            padding-top: 50px;
+            bottom: 20px;
+            position: absolute;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="splashscreen" id="splash">
+          <div class="splash-content">
+            <div class="splash-text">
+              <img src="https://app.spectentaculaire.fr/assets/logo-spectentaculaire-white.webp" alt="Logo Spectentaculaire" class="logo">
+                <h1>Pré-inscription – Saison 2026-2027</h1>
+                <p>Bonjour et bienvenue ! 👋<br /><br />Ravis de te compter parmi nous pour la grande aventure théâtrale Spectentaculaire 🐙<br /><br />
+                ℹ️ Avant d'entamer cette procédure de pré-inscription, merci de consulter la <b><a href="https://spectentaculaire.fr/listecours/" target="_blank">liste de nos cours et toutes les infos pratiques en cliquant ici</a></b>.<br /><br />
+                🕑 Cette procédure de pré-inscription te prendra environ 5 minutes.<br />
+                Il faut compléter l'ensemble des champs.<br />
+                Le nombre de places dans la troupe étant limité, une fois la demande d'inscription terminée, tu recevras de nos nouvelles dans les prochains jours.</p>
+            </div>
+            <button class="btn-commencer" onclick="startApp()">
+              <span>Commencer</span>/
+              <svg class="btn-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 4l8 8-8 8" />
+              </svg>
+            </button>
+          </div>
+          <div class="splash-footer">
+              © Spectentaculaire — 🔒 Paiement sécurisé via SSL
+          </div>
+    </div>
+
+    <div class="app-content" id="app">
+        <!-- Contenu de l'app ici -->
+        <img src="https://app.spectentaculaire.fr/assets/logo-spectentaculaire.png" style="width: 200px; margin: 20px auto; display: block;" alt="Logo Spectentaculaire" />
+        <iframe id="haWidget" allowtransparency="true" src="https://www.helloasso.com/associations/spectentaculaire/adhesions/cotisation-spectentaculaire/widget" style="width: 90%; border: none; display: block; margin: 0 auto; margin-bottom: 20px; border-radius: 10px;" onload="window.addEventListener( 'message', function(e) { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget'); haWidgetElement.height = dataHeight + 'px'; } )" ></iframe>
+    </div>
+
+
+    <script>
+        function startApp() {
+            const splash = document.getElementById('splash');
+            const app = document.getElementById('app');
+            splash.classList.add('fade-out');
+            setTimeout(() => {
+                splash.style.display = 'none';
+                app.style.display = 'block';
+            }, 500);
+        }
+    </script>
+    <script>
+      // Parse TOUT le body et remplace les emojis par des <img> Twemoji
+      twemoji.parse(document.body, {
+        base: 'https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/', // base officielle
+        folder: 'svg',         // on utilise les SVG
+        ext: '.svg',           // extension
+        className: 'emoji'     // classe CSS
+      });
+    </script>
+</body>
+</html>
